@@ -1,0 +1,108 @@
+<script>
+
+    function runVR() {
+        var htmlVR = `<div class="pop-vr"> <a-scene> <a-entity light="type: ambient; intensity: 1.5;"></a-entity> <a-entity light="type: directional; castShadow: false; intensity: 0.4; shadowCameraVisible: false;" position="-5 3 1.5"></a-entity> <a-assets> <a-asset-item id="store" src="img/3dmodels/final/scene.gltf"></a-asset-item> </a-assets> <!--Store shoes 3d walls sence--> <a-entity gltf-model="#store"></a-entity> </a-scene></div>`;
+        debugger;
+        var mnDiv = document.querySelector('.main');
+
+        mnDiv.insertAdjacentHTML("afterend", htmlVR);
+        let video = document.querySelector("#myvideo");
+        video.play();
+        video.muted = true;
+        AFRAME.registerComponent('cursor-animator', {
+            init: function () {
+                this.el.addEventListener('click', function (evt) {
+                    var productPrice = evt.target.dataset.price,
+                        productTitle = evt.target.dataset.title,
+                        productText = evt.target.dataset.text,
+                        productId = evt.target.dataset.id;
+                    document.querySelector('#injectpTitle').setAttribute('value', productTitle);
+                    document.querySelector('#injectpDetails').setAttribute('value', productText);
+                    document.querySelector('#injectPrice').setAttribute('value', productPrice);
+                    document.querySelector('#injectPrice').setAttribute('productId', productId);
+                    document.querySelector('#popUp').setAttribute('visible', 'true');
+                    document.querySelector('#injectPrice').setAttribute('visible', 'true');
+                    document.querySelector('#cartbutton').setAttribute('visible', 'true');
+                });
+
+                document.addEventListener('contextmenu', (e) => {
+                    e.preventDefault();
+                    document.querySelector('#popUp').setAttribute('visible', 'false');
+                });
+
+                function ctrlShiftKey(e, keyCode) {
+                    return e.ctrlKey && e.shiftKey && e.keyCode === keyCode.charCodeAt(0);
+                }
+
+                document.onkeydown = (e) => {
+                    // Disable F12, Ctrl + Shift + I, Ctrl + Shift + J, Ctrl + U
+                    if (
+                        event.keyCode === 123 ||
+                        ctrlShiftKey(e, 'I') ||
+                        ctrlShiftKey(e, 'J') ||
+                        ctrlShiftKey(e, 'C') ||
+                        (e.ctrlKey && e.keyCode === 'U'.charCodeAt(0))
+                    )
+                        return false;
+                };
+            }
+        });
+
+        AFRAME.registerComponent('addtocart', {
+            init: function () {
+                this.el.addEventListener('click', function (evt) {
+
+                    var productID = document.querySelector('#injectPrice').attributes.productId.value;
+                    var productPrice = document.querySelector('#injectPrice').attributes.value.value;
+                    document.querySelector('#injectpTitle').setAttribute('value', 'Congratulations');
+                    document.querySelector('#injectpDetails').setAttribute('value', "Product is Added to the Cart Sucessfully , you can also switch to website mode to se the cart");
+                    document.querySelector('#injectPrice').setAttribute('visible', 'false');
+                    document.querySelector('#cartbutton').setAttribute('visible', 'false');
+
+                });
+            }
+        })
+
+        AFRAME.registerComponent('raycaster-autorefresh', {
+            init: function () {
+                var el = this.el;
+                this.el.addEventListener('model-loaded', function () {
+                    var cursorEl = el.querySelector('[raycaster]');
+                    cursorEl.components.raycaster.refreshObjects();
+                });
+            }
+        });
+        AFRAME.registerComponent('video-handler', {
+            init: function () {
+                let el = this.el;
+                let video = document.querySelector("#myvideo");
+                video.play();
+                video.muted = true;
+            }
+        });
+    }
+</script>
+<style>
+    .pop-vr {
+        position: fixed;
+        height: 90%;
+        width: 90%;
+        z-index: 1000;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        background: #ffffff;
+
+    }
+
+    .backdrop {
+        position: fixed;
+        height: 100%;
+        width: 100%;
+        z-index: 900;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        background: rgba(0, 0, 0, .8);
+    }
+</style>
