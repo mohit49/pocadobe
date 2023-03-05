@@ -375,8 +375,7 @@
 
 <script>
     let video = document.querySelector("#myvideo");
-    video.play();
-    video.muted = true;
+
     AFRAME.registerComponent('cursor-animator', {
         init: function () {
             this.el.addEventListener('click', function (evt) {
@@ -391,6 +390,8 @@
                 document.querySelector('#popUp').setAttribute('visible', 'true');
                 document.querySelector('#injectPrice').setAttribute('visible', 'true');
                 document.querySelector('#cartbutton').setAttribute('visible', 'true');
+                video.play();
+                video.muted = true;
             });
 
             document.addEventListener('contextmenu', (e) => {
