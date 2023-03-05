@@ -456,7 +456,10 @@
     AFRAME.registerComponent('store_loaded', {
         init: function () {
             let el = this.el;
-            document.querySelector(".preloader").style.display = "none";
+            setTimeout(() => {
+                document.querySelector(".preloader").style.display = "none";
+            }, "10000");
+
 
         }
     });
