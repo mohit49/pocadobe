@@ -18,7 +18,10 @@
 </head>
 
 <body>
-    <a-scene loading-screen="dotsColor: red; backgroundColor: black">
+    <div class="preloader"
+        style="position: fixed; height: 100%; width: 100%; background: #000000; top: 0; left: 0; z-index: 2;">
+        loading</div>
+    <a-scene>
         <a-entity light="type: ambient; intensity: 1.5;"></a-entity>
         <a-entity light="type: directional;
                        castShadow: false;
@@ -77,7 +80,7 @@
         </a-assets>
         <!--Store nike walls sence-->
         <!--Store shoes 3d walls sence-->
-        <a-entity gltf-model="#store"></a-entity>
+        <a-entity gltf-model="#store" store_loaded></a-entity>
         <!--Store shoes 3d walls sence-->
         <a-image position="18 1.5 2" rotation="0 0 0" src="#banner1" height="6" width="10"></a-image>
         <a-image position="22 1.5 -5" rotation="0 90 0" src="#backWall" height="4" width="15"></a-image>
@@ -450,6 +453,15 @@
             video.muted = true;
         }
     });
+    AFRAME.registerComponent('store_loaded', {
+        init: function () {
+            let el = this.el;
+            document.querySelector(".preloader").style.display = "none";
+
+        }
+    });
+
+
 </script>
 
 </html>
