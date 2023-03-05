@@ -378,7 +378,7 @@
 </body>
 
 <script>
-    let video = document.querySelector("#myvideo");
+    var video;
 
     AFRAME.registerComponent('cursor-animator', {
         init: function () {
@@ -394,8 +394,7 @@
                 document.querySelector('#popUp').setAttribute('visible', 'true');
                 document.querySelector('#injectPrice').setAttribute('visible', 'true');
                 document.querySelector('#cartbutton').setAttribute('visible', 'true');
-                video.play();
-                video.muted = true;
+
             });
 
             document.addEventListener('contextmenu', (e) => {
@@ -448,7 +447,7 @@
     AFRAME.registerComponent('video-handler', {
         init: function () {
             let el = this.el;
-            let video = document.querySelector("#myvideo");
+            video = document.querySelector("#myvideo");
             video.play();
             video.muted = true;
         }
@@ -458,6 +457,8 @@
             let el = this.el;
             setTimeout(() => {
                 document.querySelector(".preloader").style.display = "none";
+                video.play();
+                video.muted = true;
             }, "10000");
 
 
