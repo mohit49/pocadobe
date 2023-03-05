@@ -1,0 +1,70 @@
+<script>
+
+    var htmlData = {
+        dom: '<div class="pp-data"><div class="pp-half"><button class="vr">Experiance Virtual Ecommers Store</button></div></div><div class="backdrop" style="display:none;"></div>',
+        vrImage: 'https://static.vecteezy.com/system/resources/thumbnails/003/660/245/original/asian-woman-playing-game-and-watching-movie-in-vr-glasses-happy-asian-girl-using-3d-virtual-reality-headset-at-home-free-video.jpg',
+        websiteImage: ''
+    }
+    setTimeout(function () {
+        var mnDiv = document.querySelector('.main')
+        mnDiv.insertAdjacentHTML("afterend", htmlData.dom);
+        document.querySelector('.vr').addEventListener("click", function () {
+            document.querySelector('.pp-data').style.display = "none";
+            document.querySelector('.backdrop').style.display = "block";
+
+
+            runVR();
+        });
+    }, 2000);
+
+</script>
+<style>
+    .pp-data {
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        transform: translate(-50%, -50%);
+        left: 50%;
+        top: 50%;
+        z-index: 100;
+        background: rgba(0, 0, 0, .5);
+    }
+
+    .pp-half {
+        width: 800px;
+        height: 800px;
+        background: url('https://static.vecteezy.com/system/resources/thumbnails/003/660/245/original/asian-woman-playing-game-and-watching-movie-in-vr-glasses-happy-asian-girl-using-3d-virtual-reality-headset-at-home-free-video.jpg');
+        position: absolute;
+        transform: translate(-50%, -50%);
+        left: 50%;
+        top: 50%;
+
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+
+    .pp-half button {
+        width: 300px;
+        height: 50px;
+        background: black;
+        color: #ffffff;
+        position: absolute;
+        bottom: 30px;
+        left: 50%;
+        margin-left: -150px;
+        outline: none;
+
+    }
+
+    .pp-half button:hover {
+        width: 300px;
+        height: 50px;
+        background: #ffffff;
+        color: #000000;
+        position: absolute;
+        bottom: 30px;
+        left: 50%;
+        margin-left: -150px;
+
+    }
+</style>
