@@ -8,8 +8,10 @@
     <title>Document</title>
     <script src="js/libs/three.min.js"></script>
     <script src="js/libs/VRControls.min.js"></script>
-    <script src="js/libs/aframe.min.js"></script>
-  
+    <script
+        src="https://cdn.jsdelivr.net/gh/aframevr/aframe@c27d4a2156bde2ec249600fca4967ba49fecfdc3/dist/aframe-master.min.js"></script>
+
+
 </head>
 
 <body>
@@ -156,17 +158,14 @@
             </a-plane>
 
 
-            <a-entity id="player" camera="user-height: 2" look-controls="pointerLockEnabled: false" position="0 1 0"
-                keyboard-controls="enabled: true">
-                <a-entity cursor="rayOrigin:mouse" position="0 0 -3" geometry="primitive: ring"
-                    material="color: #ffffff; shader: flat">
-                    <a-animation begin="click" easing="ease-in" attribute="scale" dur="90" fill="forwards"
-                        from="0.05 0.05 0.05" to="0.1 0.1 0.1"></a-animation>
 
-                </a-entity>
+            <a-entity
+                animation__click="property: scale; startEvents: click; easing: easeInCubic; dur: 150; from: 0.1 0.1 0.1; to: 1 1 1"
+                animation__fusing="property: scale; startEvents: fusing; easing: easeInCubic; dur: 1500; from: 1 1 1; to: 0.1 0.1 0.1"
+                animation__mouseleave="property: scale; startEvents: mouseleave; easing: easeInCubic; dur: 500; to: 1 1 1"
+                cursor="fuse: true;" material="color: black; shader: flat" position="0 0 -3"
+                geometry="primitive: ring"></a-entity>
 
-
-            </a-entity>
 
 
         </a-entity>
@@ -181,11 +180,11 @@
         <!--Shoews four-->
         <a-entity gltf-model="#shoes-jorden" rotation="0 0 0" position="-15 0.3 -10" scale="5 5 5" cursor-animator
             data-price="2000/-" data-title="Nike Air Force"
-            data-text="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen">
-            <a-animation attribute="rotation" easing="linear" dur="10000" to="0 360 0" repeat="indefinite">
+            data-text="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen"
+            animation="property: rotation; to: 0 360 0; loop: true; dur: 10000">
 
-            </a-animation>
         </a-entity>
+
         <a-plane color="#000000" height="0.4" width="1.5" position="-15 0.2 -9" cursor-animator data-price="2000/-"
             data-title="Nike Air Force" data-id="sku-1024"
             data-text="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen">
@@ -194,10 +193,9 @@
         </a-plane>
         <!--Shoews four-->
         <!--Shoews three-->
-        <a-entity gltf-model="#shoes-jorden2" rotation="0 0 0" position="-17 1 -10" scale="5 5 5" cursor-animator>
-            <a-animation attribute="rotation" easing="linear" dur="10000" to="0 360 0" repeat="indefinite">
+        <a-entity gltf-model="#shoes-jorden2" rotation="0 0 0" position="-17 1 -10" scale="5 5 5" cursor-animator
+            animation="property: rotation; to: 0 360 0; loop: true; dur: 10000">
 
-            </a-animation>
         </a-entity>
         <a-plane color="#000000" height="0.4" width="1.5" position="-17 0.2 -9" cursor-animator data-price="5000/-"
             data-title="Nike Dunk" data-id="sku-1025"
@@ -206,10 +204,9 @@
         </a-plane>
         <!--Shoews three-->
         <!--Shoews two-->
-        <a-entity gltf-model="#shoes-jorden3" rotation="0 0 0" position="-19 1 -9" scale="5 5 5" cursor-animator>
-            <a-animation attribute="rotation" easing="linear" dur="10000" to="0 360 0" repeat="indefinite">
+        <a-entity gltf-model="#shoes-jorden3" rotation="0 0 0" position="-19 1 -9" scale="5 5 5" cursor-animator
+            animation="property: rotation; to: 0 360 0; loop: true; dur: 10000">
 
-            </a-animation>
         </a-entity>
         <a-plane color="#000000" height="0.4" width="1.5" position="-19 0.2 -9" cursor-animator data-price="10000/-"
             data-title="Nike Joggers" data-id="sku-1026"
@@ -218,9 +215,9 @@
         </a-plane>
         <!--Shoews two-->
         <!--Shoews one-->
-        <a-entity gltf-model="#shoes-jorden4" rotation="0 0 0" position="-21 1 -9" scale="5 5 5">
-            <a-animation attribute="rotation" easing="linear" dur="10000" to="0 360 0"
-                repeat="indefinite"></a-animation>
+        <a-entity gltf-model="#shoes-jorden4" rotation="0 0 0" position="-21 1 -9" scale="5 5 5"
+            animation="property: rotation; to: 0 360 0; loop: true; dur: 10000">
+
         </a-entity>
         <a-plane color="#000000" height="0.4" width="1.5" position="-21 0.2 -9" cursor-animator data-price="10000/-"
             data-title="Air Jordan" data-id="sku-1027"
@@ -235,10 +232,9 @@
         <!--Shoews four 2nd row-->
 
         <!--Shoews four-->
-        <a-entity gltf-model="#shoes-jorden5" rotation="0 0 0" position="2 1 -10" scale="5 5 5" cursor-animator>
-            <a-animation attribute="rotation" easing="linear" dur="10000" to="0 360 0" repeat="indefinite">
+        <a-entity gltf-model="#shoes-jorden5" rotation="0 0 0" position="2 1 -10" scale="5 5 5" cursor-animator
+            animation="property: rotation; to: 0 360 0; loop: true; dur: 10000">
 
-            </a-animation>
         </a-entity>
         <a-plane color="#000000" height="0.4" width="1.5" position="2 0.2 -9" cursor-animator data-id="sku-1028"
             data-price="20000/-" data-title="Nike Air Force"
@@ -248,10 +244,9 @@
         </a-plane>
         <!--Shoews four-->
         <!--Shoews three-->
-        <a-entity gltf-model="#shoes-jorden2" rotation="0 0 0" position="5 1 -10" scale="5 5 5" cursor-animator>
-            <a-animation attribute="rotation" easing="linear" dur="10000" to="0 360 0" repeat="indefinite">
+        <a-entity gltf-model="#shoes-jorden2" rotation="0 0 0" position="5 1 -10" scale="5 5 5" cursor-animator
+            animation="property: rotation; to: 0 360 0; loop: true; dur: 10000">
 
-            </a-animation>
         </a-entity>
         <a-plane color="#000000" height="0.4" width="1.5" position="5 0.2 -9" cursor-animator data-title="Nike Dunk"
             data-id="sku-1029" data-price="15000/-"
@@ -260,10 +255,9 @@
         </a-plane>
         <!--Shoews three-->
         <!--Shoews two-->
-        <a-entity gltf-model="#shoes-jorden7" rotation="0 0 0" position="8 1 -9" scale="5 5 5" cursor-animator>
-            <a-animation attribute="rotation" easing="linear" dur="10000" to="0 360 0" repeat="indefinite">
+        <a-entity gltf-model="#shoes-jorden7" rotation="0 0 0" position="8 1 -9" scale="5 5 5" cursor-animator
+            animation="property: rotation; to: 0 360 0; loop: true; dur: 10000">
 
-            </a-animation>
         </a-entity>
         <a-plane color="#000000" height="0.4" width="1.5" position="8 0.2 -9" cursor-animator data-title="Nike Joggers"
             data-id="sku-1030" data-price="15000/-"
@@ -272,9 +266,9 @@
         </a-plane>
         <!--Shoews two-->
         <!--Shoews one-->
-        <a-entity gltf-model="#shoes-jorden4" rotation="0 0 0" position="10 1 -9" scale="5 5 5">
-            <a-animation attribute="rotation" easing="linear" dur="10000" to="0 360 0"
-                repeat="indefinite"></a-animation>
+        <a-entity gltf-model="#shoes-jorden4" rotation="0 0 0" position="10 1 -9" scale="5 5 5"
+            animation="property: rotation; to: 0 360 0; loop: true; dur: 10000">
+
         </a-entity>
         <a-plane color="#000000" height="0.4" width="1.5" position="10 0.2 -9" cursor-animator data-title="Air Jordan"
             data-id="sku-1030" data-price="15000/-"
@@ -290,10 +284,9 @@
         <!--ball 1nd row-->
 
         <!--Shoews four-->
-        <a-entity gltf-model="#ball1" rotation="0 0 0" position="13 0.8 -10" scale="0.5 0.5 0.5" cursor-animator>
-            <a-animation attribute="rotation" easing="linear" dur="10000" to="0 360 0" repeat="indefinite">
+        <a-entity gltf-model="#ball1" rotation="0 0 0" position="13 0.8 -10" scale="0.5 0.5 0.5" cursor-animator
+            animation="property: rotation; to: 0 360 0; loop: true; dur: 10000">
 
-            </a-animation>
         </a-entity>
         <a-plane color="#000000" height="0.4" width="1.5" position="13 0.2 -9" cursor-animator>
             <a-text value="Nike Air Force" align="center" color="#ffffff" width="5" height="5"
@@ -301,29 +294,27 @@
         </a-plane>
         <!--Shoews four-->
         <!--Shoews three-->
-        <a-entity gltf-model="#ball2" rotation="0 0 0" position="15 1 -10" scale="0.1 0.1 0.1" cursor-animator>
-            <a-animation attribute="rotation" easing="linear" dur="10000" to="0 360 0" repeat="indefinite">
+        <a-entity gltf-model="#ball2" rotation="0 0 0" position="15 1 -10" scale="0.1 0.1 0.1" cursor-animator
+            animation="property: rotation; to: 0 360 0; loop: true; dur: 10000">
 
-            </a-animation>
         </a-entity>
         <a-plane color="#000000" height="0.4" width="1.5" position="15 0.2 -9" cursor-animator>
             <a-text value="Nike Dunk" align="center" color="#ffffff" width="5" height="5" position="0 0 0"></a-text>
         </a-plane>
         <!--Shoews three-->
         <!--Shoews two-->
-        <a-entity gltf-model="#ball3" rotation="0 0 0" position="17 0.5 -9" scale="5 5 5" cursor-animator>
-            <a-animation attribute="rotation" easing="linear" dur="10000" to="0 360 0" repeat="indefinite">
+        <a-entity gltf-model="#ball3" rotation="0 0 0" position="17 0.5 -9" scale="5 5 5" cursor-animator
+            animation="property: rotation; to: 0 360 0; loop: true; dur: 10000">
 
-            </a-animation>
         </a-entity>
         <a-plane color="#000000" height="0.4" width="1.5" position="17 0.2 -9" cursor-animator>
             <a-text value="Nike Joggers" align="center" color="#ffffff" width="5" height="5" position="0 0 0"></a-text>
         </a-plane>
         <!--Shoews two-->
         <!--Shoews one-->
-        <a-entity gltf-model="#ball1" rotation="0 0 0" position="19 1 -9" scale="0.5 0.5 0.5">
-            <a-animation attribute="rotation" easing="linear" dur="10000" to="0 360 0"
-                repeat="indefinite"></a-animation>
+        <a-entity gltf-model="#ball1" rotation="0 0 0" position="19 1 -9" scale="0.5 0.5 0.5"
+            animation="property: rotation; to: 0 360 0; loop: true; dur: 10000">
+
         </a-entity>
         <a-plane color="#000000" height="0.4" width="1.5" position="19 0.2 -9" cursor-animator>
             <a-text value="Air Jordan" align="center" color="#ffffff" width="5" height="5" position="0 0 0"></a-text>
@@ -349,24 +340,25 @@
 
 
         <!--shirt one-->
-        <a-entity gltf-model="#nike-track" rotation="0 0 0" position="-21 1 -2.5" scale="0.019 0.019 0.019">
-            <a-animation attribute="rotation" easing="linear" dur="10000" to="0 360 0"
-                repeat="indefinite"></a-animation>
+        <a-entity gltf-model="#nike-track" rotation="0 0 0" position="-21 1 -2.5" scale="0.019 0.019 0.019"
+            animation="property: rotation; to: 0 360 0; loop: true; dur: 10000">
+
         </a-entity>
         <a-plane color="#000000" height="0.4" width="1.5" position="-21 1 -2" cursor-animator>
             <a-text value="Stadium Kit" align="center" color="#ffffff" width="5" height="5" position="0 0 0"></a-text>
         </a-plane>
 
-        <a-entity gltf-model="#nike-track2" rotation="0 0 0" position="-19 1 -2.5" scale="0.019 0.019 0.019">
-            <a-animation attribute="rotation" easing="linear" dur="10000" to="0 360 0"
-                repeat="indefinite"></a-animation>
+        <a-entity gltf-model="#nike-track2" rotation="0 0 0" position="-19 1 -2.5" scale="0.019 0.019 0.019"
+            animation="property: rotation; to: 0 360 0; loop: true; dur: 10000">
+
         </a-entity>
         <a-plane color="#000000" height="0.4" width="1.5" position="-19 1 -2" cursor-animator>
             <a-text value="T shirt" align="center" color="#ffffff" width="5" height="5" position="0 0 0"></a-text>
         </a-plane>
 
-        <a-entity gltf-model="#nike-track3" rotation="0 0 0" position="-16.5 0.5 -2.5" scale="1.5 1.5 1.5">
-            <a-animation attribute="rotation" easing="linear" dur="10000" to="0 0 0" repeat="indefinite"></a-animation>
+        <a-entity gltf-model="#nike-track3" rotation="0 0 0" position="-16.5 0.5 -2.5" scale="1.5 1.5 1.5"
+            animation="property: rotation; to: 0 360 0; loop: true; dur: 10000">
+
         </a-entity>
         <a-plane color="#000000" height="0.4" width="1.5" position="-17 1 -2" cursor-animator>
             <a-text value="T shirt" align="center" color="#ffffff" width="5" height="5" position="0 0 0"></a-text>
